@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
@@ -17,7 +18,33 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    "no-unused-vars":"off",
-    "react/prop-types":"off",
+    'no-unused-vars': 'off',
+    'react/prop-types': 'off',
+    'no-empty': 'off', // 추가된 부분: empty block statement 규칙 비활성화
   },
+=======
+module.exports = {
+  root: true,
+  env: { browser: true, es2020: true },
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
+    'plugin:react-hooks/recommended',
+  ],
+  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
+  settings: { react: { version: '18.2' } },
+  plugins: ['react-refresh'],
+  rules: {
+    'react/jsx-no-target-blank': 'off',
+    'react-refresh/only-export-components': [
+      'warn',
+      { allowConstantExport: true },
+    ],
+    'no-unused-vars': 'off',
+    'react/prop-types': 'off',
+    'no-empty': 'off', // 추가된 부분: empty block statement 규칙 비활성화
+  },
+>>>>>>> beb6b40a0bec7b2e499fafc6b1ebed73cf8a6acd
 }
