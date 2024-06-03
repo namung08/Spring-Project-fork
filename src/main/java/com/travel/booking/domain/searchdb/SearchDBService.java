@@ -4,6 +4,7 @@ import com.travel.booking.domain.booking.entity.Order;
 import com.travel.booking.domain.booking.entity.SeatAvailability;
 import com.travel.booking.domain.booking.repo.OrderRepository;
 import com.travel.booking.domain.booking.repo.SeatAvailabilityRepository;
+import com.travel.booking.domain.payment.entity.Payment;
 import com.travel.booking.domain.payment.repository.JpaPaymentRepository;
 import com.travel.booking.domain.searchdb.dto.*;
 import com.travel.booking.domain.searchdb.entity.Schedule;
@@ -189,7 +190,8 @@ public class SearchDBService {
         } else {
             List<OrderInfoResultDTO> orderInfoResultDTOList = new ArrayList<>();
             for (Order order : userOrderList) {
-                if (!"결제 완료".equals(order.getOrderStatus())) {
+                Payment payment = jpaPaymentRepository.findByOrderId(order.getId()).get();
+                if (payment.isPaySuccessYN()) {
                     continue;
                 }
                 Schedule schedule = scheduleRepository.findById(order.getSchedule().getId())
