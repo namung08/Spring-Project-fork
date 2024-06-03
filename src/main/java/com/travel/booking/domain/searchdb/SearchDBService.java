@@ -190,8 +190,9 @@ public class SearchDBService {
         } else {
             List<OrderInfoResultDTO> orderInfoResultDTOList = new ArrayList<>();
             for (Order order : userOrderList) {
-                Payment payment = jpaPaymentRepository.findByOrderId(order.getId()).get();
-                if (payment.isPaySuccessYN()) {
+                Payment payment = jpaPaymentRepository.findByOrderId(order.getId())
+                        .orElseThrow();
+                if (!payment.isPaySuccessYN()) {
                     continue;
                 }
                 Schedule schedule = scheduleRepository.findById(order.getSchedule().getId())
