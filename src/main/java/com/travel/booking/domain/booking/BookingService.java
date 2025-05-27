@@ -60,37 +60,37 @@ public class BookingService {
                         ()-> new SearchException(HttpStatus.BAD_REQUEST, SearchExceptionCode.SEARCH_SEAT_FAILED)
                 );
         switch (orderDto.getGrade()) {
-            case "First" -> {
+            case "first" -> {
                 Integer seatNum = seatAvailability.getAirFirst();
                 seatNum = seatNum - orderDto.getSeatOrderNum();
                 seatAvailability.setAirFirst(seatNum);
                 seatAvailabilityRepository.save(seatAvailability);
             }
-            case "Economy" -> {
+            case "economy" -> {
                 Integer seatNum = seatAvailability.getAirEconomy();
                 seatNum = seatNum - orderDto.getSeatOrderNum();
                 seatAvailability.setAirEconomy(seatNum);
                 seatAvailabilityRepository.save(seatAvailability);
             }
-            case "Business" -> {
+            case "business" -> {
                 Integer seatNum = seatAvailability.getAirBusiness();
                 seatNum = seatNum - orderDto.getSeatOrderNum();
                 seatAvailability.setAirBusiness(seatNum);
                 seatAvailabilityRepository.save(seatAvailability);
             }
-            case "StandingFreeSeating" -> {
+            case "standingFreeSeating" -> {
                 Integer seatNum = seatAvailability.getTrainStandingFreeSeating();
                 seatNum = seatNum - orderDto.getSeatOrderNum();
                 seatAvailability.setTrainStandingFreeSeating(seatNum);
                 seatAvailabilityRepository.save(seatAvailability);
             }
-            case "General" -> {
+            case "general" -> {
                 Integer seatNum = seatAvailability.getTrainGeneral();
                 seatNum = seatNum - orderDto.getSeatOrderNum();
                 seatAvailability.setTrainGeneral(seatNum);
                 seatAvailabilityRepository.save(seatAvailability);
             }
-            case "Special" -> {
+            case "special" -> {
                 Integer seatNum = seatAvailability.getTrainSpecial();
                 seatNum = seatNum - orderDto.getSeatOrderNum();
                 seatAvailability.setTrainSpecial(seatNum);
@@ -140,37 +140,37 @@ public class BookingService {
                         () -> new SearchException(HttpStatus.BAD_REQUEST, SearchExceptionCode.SEARCH_SEAT_FAILED)
                 );
         switch (order.getGrade()) {
-            case "First" -> {
+            case "first" -> {
                 Integer seatNum = seat.getAirFirst();
                 seatNum = seatNum + order.getOrderSeatNum();
                 seat.setAirFirst(seatNum);
                 seatAvailabilityRepository.save(seat);
             }
-            case "Economy" -> {
+            case "economy" -> {
                 Integer seatNum = seat.getAirEconomy();
                 seatNum = seatNum + order.getOrderSeatNum();
                 seat.setAirEconomy(seatNum);
                 seatAvailabilityRepository.save(seat);
             }
-            case "Business" -> {
+            case "business" -> {
                 Integer seatNum = seat.getAirBusiness();
                 seatNum = seatNum + order.getOrderSeatNum();
                 seat.setAirBusiness(seatNum);
                 seatAvailabilityRepository.save(seat);
             }
-            case "StandingFreeSeating" -> {
+            case "standingFreeSeating" -> {
                 Integer seatNum = seat.getTrainStandingFreeSeating();
                 seatNum = seatNum + order.getOrderSeatNum();
                 seat.setTrainStandingFreeSeating(seatNum);
                 seatAvailabilityRepository.save(seat);
             }
-            case "General" -> {
+            case "general" -> {
                 Integer seatNum = seat.getTrainGeneral();
                 seatNum = seatNum + order.getOrderSeatNum();
                 seat.setTrainGeneral(seatNum);
                 seatAvailabilityRepository.save(seat);
             }
-            case "Special" -> {
+            case "special" -> {
                 Integer seatNum = seat.getTrainSpecial();
                 seatNum = seatNum + order.getOrderSeatNum();
                 seat.setTrainSpecial(seatNum);

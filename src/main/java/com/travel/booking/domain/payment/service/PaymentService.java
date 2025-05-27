@@ -58,6 +58,9 @@ public class PaymentService {
         payment.setPaymentKey(paymentKey);
         payment.setPaySuccessYN(true);
         payment.getCustomer().setPoint(payment.getCustomer().getPoint() + amount);
+        Order order = orderRepository.findById(orderId).get();
+        order.setOrderStatus("결제 완료");
+        orderRepository.save(order);
         return result;
     }
 

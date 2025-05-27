@@ -24,7 +24,6 @@ public class OrderInfoResultDTO {
     private LocalDate orderDate;
 
     public static OrderInfoResultDTO fromOrderAndSchedule(Order order, Schedule schedule, Stationinfo startStation, Stationinfo endStation) {
-        if (order.getOrderStatus().equals("결제 완료")) {
             if (startStation.getStationType().getId() == 1) {
                 return OrderInfoResultDTO.builder()
                         .startName(startStation.getStationName())
@@ -59,7 +58,6 @@ public class OrderInfoResultDTO {
                         .railName(schedule.getFrequency() + "번 열차")
                         .build();
             }
-        }
         return null;
     }
 }
